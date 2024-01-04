@@ -1,28 +1,75 @@
-.App {
+/* App.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: green;
+  font-family: 'CyberpunkFont', sans-serif; /* Make sure to include the actual font */
+}
+
+.container {
+  display: grid;
+  /* Define 3 rows; adjust row heights as needed */
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns instead of 4 */
+  gap: 10px;
+  width: 100vw;
+  min-height: 80vh;
+  justify-content: center;
+  align-content: start;
+  padding-top: 10px; /* Adjust padding as needed */
+}
+
+.panel {
+  background-color: green;
+  border: 3px solid green;
+  height: 150px; /* Adjust as necessary */
+}
+
+.header {
+  /* The header spans only 2 columns wide, and it's placed next to the first panel */
+  grid-column: 2 / 4;
+  grid-row: 1;
+  color: green;
+  font-size: 2em;
   text-align: center;
-  /* Add any additional global styles you might need */
+  align-self: center;
+  justify-self: stretch; /* Stretch to fill the grid area */
 }
 
-/* You may remove or comment out these styles if they are not required anymore */
-/*
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+.system-link {
+  grid-column: 1; /* Position System__Link in the first column of the second row */
+  grid-row: 2;
+  color: green;
+  font-size: 2em;
+  text-align: center;
+  align-self: center;
+  justify-self: stretch;
 }
 
-.react {
-  filter: drop-shadow(0 0 2em #61dafb);
+/* There should be no placeholder class according to the description */
+
+/* Positioning the two additional panels in the final column */
+.final-column-panel-1 {
+  grid-column: 3;
+  grid-row: 2; /* Second row */
 }
 
-.card {
-  padding: 2em;
-  border: 1px solid #ccc;
-  margin: 0 auto;
-  text-align: left;
+.final-column-panel-2 {
+  grid-column: 3;
+  grid-row: 3; /* Third row */
 }
 
-.read-the-docs {
-  color: #888;
+/* Specific adjustments for responsive or specific placements */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; /* Adjust rows height on smaller screens */
+    min-height: 0; /* Adjust height on smaller screens */
+  }
+  .header, .system-link {
+    grid-column: 1 / -1; /* Span full width on smaller screens */
+  }
+  /* Adjust other elements for a responsive layout */
 }
-*/
